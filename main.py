@@ -21,8 +21,8 @@ def run(YEAR, DAY, p1_fn, p2_fn, force=False, fake_time=False, D=False, run_samp
     if run_samples:
         for fname, data in get_samples(YEAR, DAY):
             print(fname)
-            print(p1(data))
-            print(p2(data))
+            print('p1: ', p1_fn(data))
+            print('p2: ', p2_fn(data))
     target = get_target(YEAR, DAY, fake=fake_time)
     fmt_str = '%(asctime)-15s %(filename)8s:%(lineno)-3d %(message)s'
     log.basicConfig(level=log.DEBUG, format=fmt_str)
