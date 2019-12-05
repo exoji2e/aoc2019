@@ -3,7 +3,7 @@ import sys, time, datetime
 sys.path.extend(['..', '.'])
 from collections import *
 from main import run
-def get_day(): return datetime.date.today().day
+def get_day(): return 2
 def get_year(): return 2019
 
 def p1(v):
