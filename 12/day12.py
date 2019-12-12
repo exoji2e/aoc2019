@@ -28,6 +28,11 @@ def update(planets, step=100):
         p_out.append((x, y, z, vx, vy, vz))
     return p_out
 
+def drop_all(s, r):
+    for c in r:
+        s = s.replace(c, '')
+    return s
+
 def NRG(planets):
     tot = 0
     for x, y, z, vx, vy, vz in planets:
@@ -38,13 +43,7 @@ def p1(v):
     lines = v.strip().split('\n')
     planets = []
     for line in lines:
-        line = line.replace(',','')
-        line = line.replace('<','')
-        line = line.replace('>','')
-        line = line.replace('x','')
-        line = line.replace('y','')
-        line = line.replace('z','')
-        line = line.replace('=','')
+        line = drop_all(line, ',<>xyz=')
         x, y, z = map(int, line.split())
         planets.append((x, y, z, 0, 0, 0))
 
